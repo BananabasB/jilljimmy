@@ -3,13 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="It’s (j)ust (e)leventy and (t)ailwind … OK, and a few other things; it’s still really small though.">
-    <title>{{ title }}</title>
+    <meta name="description" content="Jill Jimmy: the superhero frog and his superhero pals">
+    <title>Jill Jimmy | {{ title }}</title>
     <link rel="stylesheet" href="/css/styles.css">
   </head>
-  <body>
-    <main>
+  <body class="md:p-4 flex items-center place-content-center">
+    <div class="bg-white md:border-2 flex flex-col w-full md:max-w-200 border-black">
+    <header class="relative">
+      <div class="py-10 pl-7 flex-row flex justify-between w-full">
+        <h1 class="text-5xl font-black">Jill Jimmy</h1>
+        <img
+          class="absolute -top-2 right-7 z-[5] w-32 h-auto"
+          src="/img/flying.svg"
+        />
+      </div>
+      
+      <nav class="bg-amber-300 z-20 relative border-y-2 p-2.5 text-center border-y-black">
+        <a href="/home">Home</a>
+      </nav>
+    </header>
+    <main class="bg-white z-10">
       {{ content | safe }}
     </main>
+    </div>
   </body>
 </html>
