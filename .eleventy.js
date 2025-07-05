@@ -1,10 +1,12 @@
-const { execSync } = require("child_process");
+import { execSync } from "child_process";
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/img');
   eleventyConfig.setServerOptions({
     watch: ['./public/css/styles.css']
   });
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   return {
     htmlTemplateEngine: "njk",
@@ -12,5 +14,5 @@ module.exports = function(eleventyConfig) {
       input: 'src',
       output: 'public'
     }
-  }
+  };
 }

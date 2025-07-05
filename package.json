@@ -33,5 +33,8 @@
     "rimraf": "^6.0.1",
     "tailwindcss": "^4.1.10",
     "@tailwindcss/cli": "^4.1.10"
+  },
+  "dependencies": {
+    "@11ty/eleventy-navigation": "^1.0.4"
   }
 }

@@ -7,8 +7,8 @@
     <title>Jill Jimmy | {{ title }}</title>
     <link rel="stylesheet" href="/css/styles.css">
   </head>
-  <body class="md:p-4 flex items-center place-content-center">
-    <div class="bg-white md:border-2 flex flex-col w-full md:max-w-200 border-black">
+  <body class="md:p-4 flex  items-center place-content-center">
+    <div class="bg-white md:border-2 md:cool-shadow flex flex-col w-full md:max-w-200 border-black">
     <header class="relative">
       <div class="py-10 pl-7 flex-row flex justify-between w-full">
         <h1 class="text-5xl font-black">Jill Jimmy</h1>
@@ -19,10 +19,10 @@
       </div>
       
       <nav class="bg-amber-300 z-20 relative border-y-2 p-2.5 text-center border-y-black">
-        <a href="/home">Home</a>
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
       </nav>
     </header>
-    <main class="bg-white z-10">
+    <main class="bg-white z-10 p-3">
       {{ content | safe }}
     </main>
     </div>
