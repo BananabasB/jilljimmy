@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
 @import "tailwindcss";
 @layer base {
     body {
@@ -8,26 +8,18 @@
 
 @theme {
     --font-sans: "Playpen Sans", cursive;
+    --animate-hover: hover 7s ease-in-out infinite;
+    @keyframes hover {
+        0%,
+        100% {
+            translate: 0 0;
+        }
+        50% {
+            translate: 0 3pt;
+        }
+    }
 }
 
 .cool-shadow {
-    box-shadow: inset 0 -2px black;
-}
-
-.cool-shadow-out {
-    box-shadow: 0 -2px black;
-}
-
-.marquee {
-    animation: marquee-anim 10s infinite linear;
-}
-
-@keyframes marquee-anim {
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+    @apply border-b-[3.5pt];
 }

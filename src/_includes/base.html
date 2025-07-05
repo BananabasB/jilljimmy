@@ -6,19 +6,20 @@
     <meta name="description" content="Jill Jimmy: the superhero frog and his superhero pals">
     <title>Jill Jimmy | {{ title }}</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="favicon.ico">
   </head>
   <body class="md:p-4 flex flex-col gap-3 items-center place-content-center">
     <div class="bg-white md:border-2 flex flex-col w-full md:max-w-200 border-black">
     <header class="relative">
       <div class="py-10 pl-7 flex-row flex justify-between w-full">
         <h1 class="text-5xl font-black">Jill Jimmy</h1>
-        
+
         <img
-          class="absolute -top-2 right-7 z-[5] w-32 h-auto"
+          class="absolute animate-hover -top-2 right-7 z-[5] w-32 h-auto"
           src="/img/flying.svg"
         />
       </div>
-      
+
       <nav class="bg-amber-300 z-20 relative border-y-2 p-2.5 text-center border-y-black">
         {% set navPages = collections.all | eleventyNavigation %}
 <ul class="flex flex-row text-center gap-3 place-content-center">
