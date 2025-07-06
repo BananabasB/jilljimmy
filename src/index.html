@@ -2,53 +2,98 @@
 layout: base.html
 title: Home
 eleventyNavigation:
-    key: Home
+  key: Home
 ---
 
 <div
-    class="grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-3 grid mx-auto w-full text-center"
+  class="grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-3 grid mx-auto w-full text-center"
 >
-    <div class="flex flex-col gap-3">
-        <div class="border-2 p-3 text-left cool-shadow border-black bg-white">
-            <p>
-                <b>Jill Jimmy</b> is a little frog who drank the Can of Destiny,
-                and now he has superpowers. Join him in mischevous adventures as
-                he fights bad guys.
-            </p>
-        </div>
-        <div class="border-2 p-3 text-left cool-shadow border-black bg-red-400">
-            <p>
-                This website is <b>desktop-first</b> and mobile responsiveness
-                is not a priority. We've tried our best, but we want our website
-                to look cool, and we think old-school design helps us achieve
-                that.
-            </p>
-        </div>
-        <div
-            class="border-2 p-3 text-left flex flex-col gap-2 cool-shadow border-black bg-white"
-        >
-            <b>Add our badge to your website!</b> <br />
-            <p>
-                Want to link to our website in a Neocities site or your own
-                website? Add our badge!
-            </p>
-            <a href="/"><img src="/img/badge.png" /></a>
-        </div>
+  <div class="flex flex-col gap-3">
+    <div class="border-2 p-3 text-left cool-shadow border-black bg-white">
+      <p>
+        <b>Jill Jimmy</b> is a little frog who drank the Can of Destiny, and now
+        he has superpowers. Join him in mischevous adventures as he fights bad
+        guys.
+      </p>
     </div>
-    <div class="flex flex-col gap-3 text-justify">
-        <h2 class="text-2xl font-bold">Welcome to Jill Jimmy's homepage!</h2>
-        <p>
-            Feel free to look around and learn all about this awesome frog guy.
-            There's so much to do, so take your time! :) <br />
-            <br />
-            We'd love it if you could share about Jill Jimmy with your friends -
-            maybe by adding our badge to your website, spreading info on
-            socials, or even just by word of mouth!
-        </p>
+    <div class="border-2 p-3 text-left cool-shadow border-black bg-red-400">
+      <p>
+        This website is <b>desktop-first</b> and mobile responsiveness is not a
+        priority. We've tried our best, but we want our website to look cool,
+        and we think old-school design helps us achieve that.
+      </p>
     </div>
-    <div class="flex flex-col gap-3">
-        <div class="border-2 p-3 flex cool-shadow">
-            <p>More stuff coming soon, we promise!</p>
-        </div>
+    <div
+      class="border-2 p-3 text-left flex flex-col gap-2 cool-shadow border-black bg-white"
+    >
+      <b>Add our badge to your website!</b> <br />
+      <p>
+        Want to link to our website in a Neocities site or your own website? Add
+        our badge!
+      </p>
+      <a href="/"><img src="/img/badge.gif" /></a>
     </div>
+  </div>
+  <div class="flex flex-col gap-3 text-justify">
+    <h2 class="text-2xl font-bold">Welcome to Jill Jimmy's homepage!</h2>
+    <p>
+      Feel free to look around and learn all about this awesome frog guy.
+      There's so much to do, so take your time! :) <br />
+      <br />
+      We'd love it if you could share about Jill Jimmy with your friends - maybe
+      by adding our badge to your website, spreading info on socials, or even
+      just by word of mouth!
+      <br /><br/>
+      Additionally, you can leave a comment on our guestbook - it's <span class="md:hidden">right at the bottom of the page</span><span class="not-md:hidden">to your right</span>. (Try refreshing if it's not there.)
+    </p>
+    <img src="/img/kirby.gif" />
+  </div>
+  <div class="flex flex-col gap-3">
+    <div
+      class="border-2 gap-3 p-3 flex overflow-y-scroll max-h-95 cool-shadow flex-col"
+    >
+      <script>
+        const ua = navigator.userAgent;
+        const url = new URL(window.location.href);
+        const forceOld = url.searchParams.get("forceOldBrowser") === "true";
+
+        const isOldBrowser =
+          forceOld || // manual override for testing
+          ua.includes("MSIE") ||
+          ua.includes("Trident") ||
+          ua.includes("Opera Mini") ||
+          /Android [0-5]\./.test(ua) ||
+          /iPhone OS [0-9]_/.test(ua);
+
+        if (!isOldBrowser) {
+          const s = document.createElement("script");
+          s.src = "https://giscus.app/client.js";
+          s.setAttribute("data-repo", "BananabasB/jilljimmy");
+          s.setAttribute("data-repo-id", "R_kgDOPG66pg");
+          s.setAttribute("data-category", "General");
+          s.setAttribute("data-category-id", "DIC_kwDOPG66ps4Csg6Q");
+          s.setAttribute("data-mapping", "og:title");
+          s.setAttribute("data-strict", "0");
+          s.setAttribute("data-reactions-enabled", "1");
+          s.setAttribute("data-emit-metadata", "0");
+          s.setAttribute("data-input-position", "top");
+          s.setAttribute("data-theme", "light_high_contrast");
+          s.setAttribute("data-lang", "en");
+          s.crossOrigin = "anonymous";
+          s.async = true;
+          document.currentScript.parentElement.appendChild(s);
+        } else {
+          const msg = document.createElement("p");
+          msg.textContent = "Your browser is too old to load the guestbook. Try on a more modern browser.";
+          document.currentScript.parentElement.appendChild(msg);
+        }
+      </script>
+    </div>
+    <div class="p-3 border-2 text-left border-black gap-3 cool-shadow">
+        <h2 class="font-bold">
+            Copy our code!
+        </h2>
+        <p>The code for this website is available on GitHub, and all image content is licensed under Creative Commons By-Attribution ShareAlike 4.0 - a flexible CC license.</p>
+    </div>
+  </div>
 </div>
