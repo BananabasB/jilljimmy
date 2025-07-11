@@ -4,7 +4,7 @@ title: Home
 eleventyNavigation:
   key: Home
 ---
-
+<div class="flex-col gap-3 flex">
 <div
   class="flex-col grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-3 flex md:grid mx-auto w-full text-center"
 >
@@ -26,10 +26,10 @@ eleventyNavigation:
     <div
       class="border-2 p-3 text-left flex flex-col gap-2 cool-shadow border-black bg-white"
     >
-      <b>Add our badge to your website!</b> <br>
+      <b>Add our blinkie to your website!</b> <br>
       <p>
         Want to link to our website in a Neocities site or your own website? Add
-        our badge - it's <span class="md:hidden">just below</span><span class="not-md:hidden">to your right</span>.
+        our blinkie - <a href="/blinkies" class="text-blue-600">find out how to do it here</a>.
       </p>
     </div>
   </div>
@@ -45,9 +45,12 @@ eleventyNavigation:
       <br><br>
       Additionally, you can leave a comment on our guestbook - it's <span class="md:hidden">right at the bottom of the page</span><span class="not-md:hidden">to your right</span>. (Try refreshing if it's not there.)
     </p>
-    <img alt="An animated badge, with an image of Kirby swimming, caption keep on going." src="/img/kirby-4x.gif" >
+    <div class="gap-3 grid grid-cols-3 md:grid-rows-3 md:grid-cols-1">
+      <img title="Nintendo, plz don't sue us, we're begging you" alt="An animated badge, with an image of Kirby swimming, caption keep on going." src="/img/kirby-4x.gif" >
     <img alt="An animated badge, with an image of a four-legged creature with big eyes, caption autistic lives matter." src="/img/tbh-3x.gif">
     <a href="/"><img alt="An animated badge for Jill Jimmy" src="/img/badge-3x.gif" ></a>
+    </div>
+    
   </div>
   <div class="flex flex-col gap-3">
     <div
@@ -94,7 +97,42 @@ eleventyNavigation:
         <h2 class="font-bold">
             Copy our code!
         </h2>
-        <p>The code for this website is available on GitHub, and all image content is licensed under Creative Commons By-Attribution ShareAlike 4.0 - a flexible CC license.</p>
+        <p>The code for this website is available on GitHub, and all original image content is licensed under Creative Commons By-Attribution ShareAlike 4.0 - a flexible CC license.</p>
     </div>
   </div>
+</div>
+<div class=" flex">
+<div class="theme-switcher flex">
+  <label>
+    <input type="radio" name="theme" value="green" class="hidden peer" checked>
+    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-green-400">
+    </div>
+  </label>
+  <label class="-ml-[1.5px]">
+    <input type="radio" name="theme" value="autumn" class="hidden peer">
+    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-amber-500">
+    </div>
+  </label>
+  <label class="-ml-[1.6px]">
+    <input type="radio" name="theme" value="yellow" class="hidden peer">
+    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-yellow-300">
+    </div>
+  </label>
+  <label class="-ml-[2px]">
+    <input type="radio" name="theme" value="purple" class="hidden peer">
+    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-purple-400">
+    </div>
+  </label>
+</div>
+</div>
+<script>
+  const radios = document.querySelectorAll('input[name="theme"]');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.body.classList.remove("theme-autumn", "theme-yellow", "theme-purple", "theme-green");
+      document.body.classList.add("theme-" + radio.value);
+    });
+  });
+</script>
 </div>

@@ -1,14 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
 @import "tailwindcss";
-
+@font-face {
+    font-family: "Comic Shanns";
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url("/fnt/ComicShanns.ttf");
+}
 @layer base {
     body {
-        background: url(/img/background.svg) !important;
+        background: url(/img/background.svg);
     }
 }
 
 @theme {
     --font-sans: "Playpen Sans", cursive;
+    --font-mono: "Comic Shanns", monospace;
     --animate-hover: hover 7s ease-in-out infinite;
 
     @keyframes hover {
@@ -25,9 +32,21 @@
 }
 
 .cool-shadow {
-    @apply border-b-[3.5pt];
+    @apply border-b-4;
 }
 
 .gsc-main {
     font-family: "Playpen Sans", cursive !important;
+}
+
+.theme-autumn {
+    background: url(/img/autumn.svg);
+}
+
+.theme-yellow {
+    background: url(/img/yellow.svg) !important;
+}
+
+.theme-purple {
+    background: url(/img/purple.svg) !important;
 }
