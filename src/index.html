@@ -101,38 +101,5 @@ eleventyNavigation:
     </div>
   </div>
 </div>
-<div class=" flex">
-<div class="theme-switcher flex">
-  <label>
-    <input type="radio" name="theme" value="green" class="hidden peer" checked>
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-green-400">
-    </div>
-  </label>
-  <label class="-ml-[1.5px]">
-    <input type="radio" name="theme" value="autumn" class="hidden peer">
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-amber-500">
-    </div>
-  </label>
-  <label class="-ml-[1.6px]">
-    <input type="radio" name="theme" value="yellow" class="hidden peer">
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-yellow-300">
-    </div>
-  </label>
-  <label class="-ml-[2px]">
-    <input type="radio" name="theme" value="purple" class="hidden peer">
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-purple-400">
-    </div>
-  </label>
-</div>
-</div>
-<script>
-  const radios = document.querySelectorAll('input[name="theme"]');
 
-  radios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      document.body.classList.remove("theme-autumn", "theme-yellow", "theme-purple", "theme-green");
-      document.body.classList.add("theme-" + radio.value);
-    });
-  });
-</script>
 </div>

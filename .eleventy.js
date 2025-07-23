@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 
 export default function (eleventyConfig) {
