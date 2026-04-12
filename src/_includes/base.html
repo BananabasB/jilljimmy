@@ -16,12 +16,15 @@
         <h1 class="text-5xl font-black">Jill Jimmy</h1>
         <a href="/secret">
           <img
-          class="absolute animate-hover -top-2 right-7 z-[5] w-32 h-auto"
-          src="/img/flying.svg"
-          alt="An image of Jill Jimmy, a green anthrophomorphic frog, flying."
-        >
+            id="jill-jimmy-mascot"
+            class="absolute animate-hover -top-2 right-7 z-[5] w-32 h-auto"
+            src="/img/flying.svg"
+            data-3d="/img/flying.png"
+            data-2d="/img/flying.svg"
+            alt="An image of Jill Jimmy"
+          >
         </a>
-        
+
       </div>
 
       <nav class="bg-amber-300 z-20 relative border-y-2 p-2.5 text-center border-y-black">
@@ -40,60 +43,95 @@
     </header>
     <main class="bg-white z-10 cool-shadow gap-3 flex flex-col p-3">
       {{ content | safe }}
-      <div class=" flex">
-<div class="theme-switcher flex">
-  <label>
-    <input type="radio" name="theme" value="green" class="hidden peer" checked>
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-green-400">
-    </div>
-  </label>
-  <label class="-ml-[1.5px]">
-    <input type="radio" name="theme" value="autumn" class="hidden peer">
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-amber-500">
-    </div>
-  </label>
-  <label class="-ml-[1.6px]">
-    <input type="radio" name="theme" value="yellow" class="hidden peer">
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-yellow-300">
-    </div>
-  </label>
-  <label class="-ml-[2px]">
-    <input type="radio" name="theme" value="purple" class="hidden peer">
-    <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-purple-400">
-    </div>
-  </label>
-</div>
-</div>
-<script>
-  const themeRadios = document.querySelectorAll('input[name="theme"]');
+      <div class="flex gap-2">
+        <div class="theme-switcher flex">
+          <label>
+            <input type="radio" name="theme" value="green" class="hidden peer" checked>
+            <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-green-400">
+            </div>
+          </label>
+          <label class="-ml-[1.5px]">
+            <input type="radio" name="theme" value="autumn" class="hidden peer">
+            <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-amber-500">
+            </div>
+          </label>
+          <label class="-ml-[1.6px]">
+            <input type="radio" name="theme" value="yellow" class="hidden peer">
+            <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-yellow-300">
+            </div>
+          </label>
+          <label class="-ml-[2px]">
+            <input type="radio" name="theme" value="purple" class="hidden peer">
+            <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-5 py-2 border-2 border-black cool-shadow bg-purple-400">
+            </div>
+          </label>
+        </div>
+        <div class="dimension-switcher flex">
+          <label class="-ml-[2px]">
+            <input type="radio" name="dimension" value="2d" class="hidden peer" checked>
+            <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-1 border-2 border-black cool-shadow bg-white text-xs font-bold">
+              2D
+            </div>
+          </label>
+          <label class="-ml-[1.5px]">
+            <input type="radio" name="dimension" value="3d" class="hidden peer">
+            <div class="cursor-pointer peer-checked:!border-b-2 peer-checked:!mt-0.5 px-1 border-2 border-black cool-shadow bg-white text-xs font-bold">
+              3D
+            </div>
+          </label>
+        </div>
+      </div>
+      <script>
+        const themeRadios = document.querySelectorAll('input[name="theme"]');
 
-  function updateTheme(value) {
-    document.body.className = document.body.className
-      .split(' ')
-      .filter(c => !c.startsWith('theme-'))
-      .concat(`theme-${value}`)
-      .join(' ');
-    localStorage.setItem('selectedTheme', value);
-  }
+        function updateTheme(value) {
+          document.body.className = document.body.className
+            .split(' ')
+            .filter(c => !c.startsWith('theme-'))
+            .concat(`theme-${value}`)
+            .join(' ');
+          localStorage.setItem('selectedTheme', value);
+        }
 
-  // Apply saved theme if found
-  const savedTheme = localStorage.getItem('selectedTheme');
-  if (savedTheme) {
-    const savedRadio = document.querySelector(`input[name="theme"][value="${savedTheme}"]`);
-    if (savedRadio) savedRadio.checked = true;
-    updateTheme(savedTheme);
-  }
+        const savedTheme = localStorage.getItem('selectedTheme');
+        if (savedTheme) {
+          const savedRadio = document.querySelector(`input[name="theme"][value="${savedTheme}"]`);
+          if (savedRadio) savedRadio.checked = true;
+          updateTheme(savedTheme);
+        }
 
-  themeRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      updateTheme(radio.value);
-    });
-  });
-</script>
+        themeRadios.forEach(radio => {
+          radio.addEventListener('change', () => {
+            updateTheme(radio.value);
+          });
+        });
+
+        const mascot = document.getElementById('jill-jimmy-mascot');
+        const dimensionRadios = document.querySelectorAll('input[name="dimension"]');
+
+        function updateDimension(value) {
+          if (!mascot) return;
+          mascot.src = value === '3d' ? mascot.dataset['3d'] : mascot.dataset['2d'];
+          localStorage.setItem('selectedDimension', value);
+        }
+
+        const savedDimension = localStorage.getItem('selectedDimension');
+        if (savedDimension) {
+          const savedDimensionRadio = document.querySelector(`input[name="dimension"][value="${savedDimension}"]`);
+          if (savedDimensionRadio) savedDimensionRadio.checked = true;
+          updateDimension(savedDimension);
+        }
+
+        dimensionRadios.forEach(radio => {
+          radio.addEventListener('change', () => {
+            updateDimension(radio.value);
+          });
+        });
+      </script>
     </main>
     </div>
     <footer class="text-left w-full md:max-w-200 place-content-between flex">
-      
+
       <a target="_blank" title="Opens in a new tab" href="https://creativecommons.org/licenses/by-sa/4.0/">
       <img src="/img/license.png" width="88" height="31" alt="Creative Commons By-Attribution Share-Alike 4.0 badge">
     </a>

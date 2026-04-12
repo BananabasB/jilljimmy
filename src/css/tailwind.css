@@ -50,3 +50,8 @@
 .theme-purple {
     background: url(/img/purple.svg) !important;
 }
+
+.bullet {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
